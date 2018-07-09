@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/hot/hot",
+    "pages/user/user"
+  ],
+  "window": {
+    "backgroundColor": "#DCDCDC",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#FFFFFF",
+    "navigationBarTitleText": "Wafer Quick Start",
+    "navigationBarTextStyle": "black"
+  }
+}
