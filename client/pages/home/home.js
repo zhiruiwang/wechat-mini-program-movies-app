@@ -15,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getmovieList()
   },
 
   getmovieList() {
@@ -29,7 +29,7 @@ Page({
 
         if (!result.data.code) {
           this.setData({
-            productList: result.data.data
+            movieList: result.data.data[Math.floor(Math.random()*result.data.data.length)]
           })
         } else {
           wx.showToast({

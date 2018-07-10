@@ -1,2 +1,14 @@
 <!--pages/user/user.wxml-->
-<text>pages/user/user.wxml</text>
+<view  class='title'>
+  <text>收藏的影评 ∨</text>
+</view>
+<navigator  class='movie-card'>
+  <image class='movie-image' src='https://movies-1256757691.cos.na-ashburn.myqcloud.com/p2517753454.jpg'></image>
+  <view class='text-card'>
+    <text class='movie-name'>复仇者联盟3：无限战争</text>
+  </view>
+</navigator>
+
+<navigator class='back-home' url='/pages/home/home'>
+  <text class='home-text'>回到首页</text>
+</navigator>

@@ -1,6 +1,6 @@
-// pages/hot/hot.js
-const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
-const config = require('../../config.js')
+// pages/detail/detail.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config')
 
 Page({
 
@@ -8,41 +8,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movieList: [],
+    movie: {},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getmovieList()
+    this.getMovie(options.id)
   },
-  getmovieList() {
+
+  getMovie(id) {
     wx.showLoading({
-      title: '电影数据加载中',
+      title: '电影数据加载中...',
     })
+
     qcloud.request({
-      url: config.service.movieList,
+      url: config.service.movieDetail + id,
       success: result => {
         wx.hideLoading()
 
-        if (!result.data.code) {
+        let data = result.data
+        console.log(data);
+
+        if (!data.code) {
           this.setData({
-            movieList: result.data.data
+            movie: data.data
           })
         } else {
-          wx.showToast({
-            title: '电影数据加载失败',
-          })
+          setTimeout(() => {
+            wx.navigateBack()
+          }, 2000)
         }
       },
-      fail: result => {
+      fail: () => {
         wx.hideLoading()
-        wx.showToast({
-          title: '电影数据加载失败',
-        })
+
+        setTimeout(() => {
+          wx.navigateBack()
+        }, 2000)
       }
-    });
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

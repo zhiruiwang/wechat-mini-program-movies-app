@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://ogdmtqfn.qcloud.la';
+var host = 'https://ogdmtqfn.qcloud.la/';
 
 var config = {
 
@@ -23,8 +23,11 @@ var config = {
         // 上传图片接口
         uploadUrl: `${host}/weapp/upload`,
 
-        // 获取产品列表
+        // 获取电影列表
         movieList: `${host}/weapp/movies`,
+
+        // 获取电影详情
+        movieDetail: `${host}/weapp/movies/`,
     }
 };
 

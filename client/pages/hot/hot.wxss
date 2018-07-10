@@ -1,1 +1,35 @@
 /* pages/hot/hot.wxss */
+page {
+  background-color: #ececee;
+}
+
+.movie-card {
+  margin: 40rpx 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #FFFFFF;
+}
+
+.movie-image {
+  width: 270rpx;
+  height: 378rpx;
+}
+
+.text-card {
+  display: flex;
+  flex-direction: column;
+  margin: 40rpx 40rpx;
+}
+
+.movie-name {
+  font-weight: bold;
+  font-size: 32rpx;
+  line-height: 45rpx;
+  margin-bottom: 50rpx;
+}
+
+.movie-cat {
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
