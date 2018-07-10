@@ -1,6 +1,6 @@
-// pages/home/home.js
-const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
-const config = require('../../config.js')
+// pages/commentedit/commentedit.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config')
 
 Page({
 
@@ -8,42 +8,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movieList: [], 
+    movie: {},
+    commentValue: '',
   },
+
+  onInput(event) {
+    this.setData({
+      commentValue: event.detail.value.trim()
+    })
+  },
+  
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getmovieList()
-  },
-
-  getmovieList() {
-    wx.showLoading({
-      title: '电影数据加载中',
+    let movie = {
+      id: options.id,
+      image: options.image.trim(),
+      title: options.title
+    }
+    this.setData({
+      movie: movie
     })
-    qcloud.request({
-      url: config.service.movieList,
-      success: result => {
-        wx.hideLoading()
-
-        if (!result.data.code) {
-          this.setData({
-            movieList: result.data.data[Math.floor(Math.random()*result.data.data.length)]
-          })
-        } else {
-          wx.showToast({
-            title: '电影数据加载失败',
-          })
-        }
-      },
-      fail: result => {
-        wx.hideLoading()
-        wx.showToast({
-          title: '电影数据加载失败',
-        })
-      }
-    });
   },
 
   /**
@@ -78,7 +65,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getmovieList()
+  
   },
 
   /**

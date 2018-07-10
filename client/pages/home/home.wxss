@@ -2,7 +2,7 @@
 page {
   background-color: #ececee;
 }
-
+/* 推荐电影 */
 .recommend-card{
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@ page {
   font-size: 42rpx;
   line-height: 60rpx;
 } 
-
+/* 推荐来源 */
 .comment {
   display: flex;
   flex-direction: row;
@@ -33,7 +33,7 @@ page {
   color: #34373D;
   opacity: 0.9; 
 }
-
+/* 下方两个按钮 */
 .button {
   display: flex;
   flex-direction: row;

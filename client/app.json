@@ -3,13 +3,19 @@
     "pages/home/home",
     "pages/hot/hot",
     "pages/user/user",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/commentlist/commentlist",
+    "pages/commentedit/commentedit",
+    "pages/commentpreview/commentpreview",
+    "pages/commentdetail/commentdetail"
+
   ],
   "window": {
     "backgroundColor": "#DCDCDC",
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "Wafer Quick Start",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   }
 }

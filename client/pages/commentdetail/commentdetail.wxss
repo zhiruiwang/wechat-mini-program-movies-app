@@ -1,4 +1,4 @@
-/* pages/detail/detail.wxss */
+/* pages/commentdetail/commentdetail.wxss */
 page {
   background-color: #ececee;
 }
@@ -25,7 +25,7 @@ page {
   font-weight: bold;
 } 
 
-.description {
+.background {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@ page {
   width: 90%;
 }
 
-.description-text {
+.comment {
   position: absolute;
   left: 80rpx; 
   right: 80rpx; 
@@ -61,7 +61,7 @@ page {
   z-index: 2;
 }
 
-.see-button,.add-button {
+.star-button,.write-button {
   display: flex;
   flex-direction: row;
   background: #FFFFFF;
@@ -73,18 +73,18 @@ page {
   margin-right: 100rpx;
 }
 
-.see-button {
+.star-button {
   margin-left: 100rpx;
 }
 
-.see-pic,.add-pic {
+.star-pic,.write-pic {
   margin-right: 10rpx; 
   width: 44rpx;
   height: 44rpx;
 }
 
-.see-text,.add-text {
-  font-size: 30rpx;
-  line-height: 42rpx;
+.star-text,.write-text {
+  font-size: 26rpx;
+  line-height: 36rpx;
   color: #808080;
 }

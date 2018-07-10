@@ -50,6 +50,26 @@ Page({
       }
     })
   },
+
+  chooseComment: function () {
+    let movie = this.data.movie
+    wx.showActionSheet({
+      itemList: ['文字', '音频'],
+      success: function (res) {
+        if (!res.cancel) {
+          if (res.tapIndex == 0) {
+            wx.navigateTo({
+              url: '/pages/commentedit/commentedit?id=' + movie.id + "&image=" + movie.image + "&title=" + movie.title
+            })
+          } else if (res.tapIndex == 1) {
+            wx.navigateTo({
+              url: '/pages/home/home',
+            })
+          }
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -81,8 +101,8 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
+  onPullDownRefresh: function (options) {
+    this.getMovie(options.id)
   },
 
   /**

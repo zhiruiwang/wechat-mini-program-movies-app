@@ -3,6 +3,7 @@ page {
   background-color: #ececee;
 }
 
+/* 电影卡 */
 .movie-card {
   margin: 40rpx 40rpx;
   display: flex;

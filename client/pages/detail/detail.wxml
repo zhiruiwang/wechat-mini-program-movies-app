@@ -1,18 +1,19 @@
 <!--pages/detail/detail.wxml-->
-<view class='movie-card' url="/pages/detail/detail?id={{movieList.id}}">
+<view class='movie-card'>
   <image class='movie-pic' src="{{movie.image}}"></image>
   <text class='movie-name'>{{movie.title}}</text>
 </view>
-<view class='description'>
+<scroll-view scroll-y class='description'>
   <text class='description-text'>{{movie.description}}</text>
-  <view class='button'>
-    <navigator class='see-button'>
-      <image class='see-pic' src='/images/visibility-button.png'></image>
-      <text class='see-text'>查看影评</text>
-    </navigator>
-    <navigator class='add-button'>
-      <image class='add-pic' src='/images/two-speech-bubbles.png'></image>
-      <text class='add-text'>添加影评</text>
-    </navigator>
-  </view>  
+</scroll-view>
+
+<view class='button'>
+  <navigator class='see-button' url="/pages/commentlist/commentlist?id={{movie.id}}&image={{movie.image}}&title={{movie.title}}">
+    <image class='see-pic' src='/images/visibility-button.png'></image>
+    <text class='see-text'>查看影评</text>
+  </navigator>
+  <button class='add-button' bindtap="chooseComment">
+    <image class='add-pic' src='/images/two-speech-bubbles.png'></image>
+    <text class='add-text'>添加影评</text>
+  </button>
 </view>

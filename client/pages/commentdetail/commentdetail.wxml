@@ -1,0 +1,19 @@
+<!--pages/commentdetail/commentdetail.wxml-->
+<view class='movie-card'>
+  <image class='movie-pic' src="{{movie.image}}"></image>
+  <text class='movie-name'>{{movie.title}}</text>
+</view>
+<scroll-view scroll-y  class='background'>
+  <text class='comment'>{{commentValue}}</text>
+</scroll-view>
+
+<view class='button'>
+  <button class='star-button' bindtap="star">
+    <image class='star-pic' src='/images/star.png'></image>
+    <text class='star-text'>收藏影评</text>
+  </button>
+  <button class='write-button' bindtap="chooseComment">
+    <image class='write-pic' src='/images/pencil-edit-button.png'></image>
+    <text class='write-text'>写影评</text>
+  </button>
+</view>

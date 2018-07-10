@@ -1,6 +1,6 @@
-// pages/home/home.js
-const qcloud = require('../../vendor/wafer2-client-sdk/index.js')
-const config = require('../../config.js')
+// pages/commentdetail/commentdetail.js
+const qcloud = require('../../vendor/wafer2-client-sdk/index')
+const config = require('../../config')
 
 Page({
 
@@ -8,42 +8,41 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movieList: [], 
+    movie: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getmovieList()
+    let movie = {
+      id: options.id,
+      image: options.image.trim(),
+      title: options.title
+    }
+    this.setData({
+      movie: movie
+    })
   },
 
-  getmovieList() {
-    wx.showLoading({
-      title: '电影数据加载中',
-    })
-    qcloud.request({
-      url: config.service.movieList,
-      success: result => {
-        wx.hideLoading()
-
-        if (!result.data.code) {
-          this.setData({
-            movieList: result.data.data[Math.floor(Math.random()*result.data.data.length)]
-          })
-        } else {
-          wx.showToast({
-            title: '电影数据加载失败',
-          })
+  chooseComment: function () {
+    let movie = this.data.movie
+    wx.showActionSheet({
+      itemList: ['文字', '音频'],
+      success: function (res) {
+        if (!res.cancel) {
+          if (res.tapIndex == 0) {
+            wx.navigateTo({
+              url: '/pages/commentedit/commentedit?id=' + movie.id + "&image=" + movie.image + "&title=" + movie.title
+            })
+          } else if (res.tapIndex == 1) {
+            wx.navigateTo({
+              url: '/pages/home/home',
+            })
+          }
         }
-      },
-      fail: result => {
-        wx.hideLoading()
-        wx.showToast({
-          title: '电影数据加载失败',
-        })
       }
-    });
+    })
   },
 
   /**
@@ -78,7 +77,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getmovieList()
+  
   },
 
   /**

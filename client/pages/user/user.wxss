@@ -2,7 +2,7 @@
 page {
   background-color: #ececee;
 }
-
+/* 标题 */
 .title{
   margin: 100rpx 40rpx;
   text-align: center;
@@ -10,7 +10,7 @@ page {
   font-size: 32rpx;
   line-height: 45rpx;
 }
-
+/* 电影卡 */
 .movie-card {
   margin: 40rpx 40rpx;
   display: flex;
@@ -36,7 +36,7 @@ page {
   line-height: 45rpx;
   margin-bottom: 50rpx;
 }
-
+/* 下方按钮 */
 .back-home {
   display: flex;
   flex-direction: row;

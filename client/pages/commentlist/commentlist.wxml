@@ -1,0 +1,11 @@
+<!--pages/commentlist/commentlist.wxml-->
+<navigator class="comment-card">
+  <view class="people"></view>
+  <view class='comment'></view>
+</navigator>
+
+
+
+<navigator class='back-home' url='/pages/home/home'>
+  <text class='home-text'>回到首页</text>
+</navigator>

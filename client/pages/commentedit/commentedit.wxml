@@ -1,0 +1,19 @@
+<!--pages/commentedit/commentedit.wxml-->
+<view class='movie-card'>
+  <image class='movie-pic' src="{{movie.image}}"></image>
+  <text class='movie-name'>{{movie.title}}</text>
+</view>
+<view class='background'>
+  <textarea class='comment-ipt' placeholder-class='comment-placeholder' placeholder='输入你的影评内容' auto-focus maxlength='512' bindinput='onInput'></textarea>
+</view>
+
+<view class='button'>
+  <navigator class='record-button' url="/pages/commentlist/commentlist">
+    <image class='record-pic' src='/images/radio-microphone.png'></image>
+    <text class='record-text'>录音</text>
+  </navigator>
+</view>
+
+<navigator class='finish' url='/pages/commentpreview/commentpreview?id={{movie.id}}&image={{movie.image}}&title={{movie.title}}&comment={{commentValue}}'>
+  <text class='finish-text'>完成</text>
+</navigator>

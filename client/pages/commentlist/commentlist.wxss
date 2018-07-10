@@ -1,0 +1,28 @@
+/* pages/commentlist/commentlist.wxss */
+page {
+  background-color: #ececee;
+}
+
+.comment-card {
+  background-color: #FFFFFF;
+}
+
+/* 下方按钮 */
+.back-home {
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 120rpx;
+  background: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ccc
+}
+
+.home-text {
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color: #808080;
+}
