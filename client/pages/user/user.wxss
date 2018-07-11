@@ -2,6 +2,24 @@
 page {
   background-color: #ececee;
 }
+.user-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 200rpx;
+}
+
+.user-head {
+  flex-shrink: 0;
+  margin-left: 53rpx;
+  height: 100rpx;
+  width: 100rpx;
+  background: #F5E069;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
 /* 标题 */
 .title{
   margin: 100rpx 40rpx;

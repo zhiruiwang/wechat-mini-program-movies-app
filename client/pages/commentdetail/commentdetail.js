@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movie: {}
+    movie: {},
+    commentValue: ''
   },
 
   /**
@@ -20,8 +21,10 @@ Page({
       image: options.image.trim(),
       title: options.title
     }
+    let commentValue = options.comment
     this.setData({
-      movie: movie
+      movie: movie,
+      commentValue: commentValue
     })
   },
 

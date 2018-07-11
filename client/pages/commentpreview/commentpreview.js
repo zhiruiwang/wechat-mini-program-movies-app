@@ -12,6 +12,56 @@ Page({
     commentValue: '',
   },
 
+  addComment(event) {
+    let content = this.data.commentValue
+    if (!content) return
+
+    wx.showLoading({
+      title: '正在发表评论'
+    })
+
+    qcloud.request({
+      url: config.service.addComment,
+      login: true,
+      method: 'PUT',
+      data: {
+        content: content,
+        movie_id: this.data.movie.id
+      },
+      success: result => {
+        wx.hideLoading()
+
+        let data = result.data
+
+        if (!data.code) {
+          wx.showToast({
+            title: '发表评论成功'
+          })
+
+          setTimeout(() => {
+            let movie = this.data.movie
+            wx.navigateTo({
+              url: `/pages/commentlist/commentlist?id=${movie.id}&image=${movie.image}&title=${movie.title}`
+            })
+          }, 1500)
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '发表评论失败'
+          })
+        }
+      },
+      fail: () => {
+        wx.hideLoading()
+
+        wx.showToast({
+          icon: 'none',
+          title: '发表评论失败'
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

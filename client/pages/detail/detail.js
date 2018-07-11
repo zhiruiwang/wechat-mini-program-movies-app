@@ -29,8 +29,7 @@ Page({
         wx.hideLoading()
 
         let data = result.data
-        console.log(data);
-
+        
         if (!data.code) {
           this.setData({
             movie: data.data

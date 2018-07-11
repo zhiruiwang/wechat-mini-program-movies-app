@@ -1,14 +1,28 @@
 <!--pages/user/user.wxml-->
-<view  class='title'>
-  <text>收藏的影评 ∨</text>
-</view>
-<navigator  class='movie-card'>
-  <image class='movie-image' src='https://movies-1256757691.cos.na-ashburn.myqcloud.com/p2517753454.jpg'></image>
-  <view class='text-card'>
-    <text class='movie-name'>复仇者联盟3：无限战争</text>
+<view wx:if="{{!userInfo}}">
+  <view class="unlogin-card">
+    <view class="unlogin-head"></view>
+    <view class="unlogin-info">
+      <view class="unlogin-text">未登录</view>
+      <view class="unlogin-tips">点击微信登录后查看收藏影评</view>
+    </view>
   </view>
-</navigator>
+  <button wx:if="{{locationAuthType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
+  <button wx:if="{{locationAuthType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
+</view>
+<view class="user-card" wx:else>
+  <view class="user-info">
+    <image class="user-head" src="{{userInfo.avatarUrl}}"></image>
+    <text class='title'>收藏的影评 ∨</text>
+  </view>
+  <navigator  class='movie-card'>
+    <image class='movie-image' src='https://movies-1256757691.cos.na-ashburn.myqcloud.com/p2517753454.jpg'></image>
+    <view class='text-card'>
+      <text class='movie-name'>复仇者联盟3：无限战争</text>
+    </view>
+  </navigator>
 
-<navigator class='back-home' url='/pages/home/home'>
-  <text class='home-text'>回到首页</text>
-</navigator>
+  <navigator class='back-home' url='/pages/home/home'>
+    <text class='home-text'>回到首页</text>
+  </navigator>
+</view>

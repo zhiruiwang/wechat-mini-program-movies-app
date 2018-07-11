@@ -1,4 +1,6 @@
 <!--pages/commentpreview/commentpreview.wxml-->
+
+
 <view class='movie-card'>
   <image class='movie-pic' src="{{movie.image}}"></image>
   <text class='movie-name'>{{movie.title}}</text>
@@ -12,7 +14,7 @@
     <image class='back-pic' src='/images/back.png'></image>
     <text class='back-text'>重新编辑</text>
   </button>
-  <button class='post-button' bindtap="postComment">
+  <button class='post-button' bindtap="addComment">
     <image class='post-pic' src='/images/paper-plane.png'></image>
     <text class='post-text'>发布影评</text>
   </button>

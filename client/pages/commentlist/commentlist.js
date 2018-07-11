@@ -1,6 +1,7 @@
 // pages/commentlist/commentlist.js
 const qcloud = require('../../vendor/wafer2-client-sdk/index')
 const config = require('../../config')
+const _ = require('../../utils/util')
 
 Page({
 
@@ -9,6 +10,28 @@ Page({
    */
   data: {
     movie: {},
+    commentList: [] // 评论列表
+  },
+
+  getCommentList(id) {
+    qcloud.request({
+      url: config.service.commentList,
+      data: {
+        movie_id: id
+      },
+      success: result => {
+        let data = result.data
+        if (!data.code) {
+          this.setData({
+            commentList: data.data.map(item => {
+              let itemDate = new Date(item.create_time)
+              item.createTime = _.formatTime(itemDate)
+              return item
+            })
+          })
+        }
+      },
+    })
   },
 
   /**
@@ -20,10 +43,10 @@ Page({
       image: options.image.trim(),
       title: options.title
     }
-    console.log(movie);
     this.setData({
       movie: movie
     })
+    this.getCommentList(movie.id)
   },
 
   /**

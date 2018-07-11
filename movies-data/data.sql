@@ -36,7 +36,7 @@ INSERT INTO `movies` (`id`, `image`, `title`, `category`, `description`) VALUES
 CREATE TABLE `moviecomment` (
   `id` int(11) NOT NULL,
   `user` varchar(255) NOT NULL,
-  `username` varchar(255) DEFAULT NULL,
+  `username` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `avatar` varchar(255) NOT NULL,
   `content` varchar(511) CHARACTER SET utf8 DEFAULT NULL,
   `recordings` varchar(1023) DEFAULT NULL,
