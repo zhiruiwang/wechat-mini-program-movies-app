@@ -3,7 +3,7 @@ const DB = require('../utils/db')
 module.exports = {
 
   /**
-   * 添加评论
+   * 添加影评
    */
   add: async ctx => {
     let user = ctx.state.$wxInfo.userinfo.openId
@@ -23,7 +23,7 @@ module.exports = {
   },
 
   /**
-   * 获取评论列表
+   * 获取影评列表
    */
   list: async ctx => {
     let movieId = +ctx.request.query.movie_id

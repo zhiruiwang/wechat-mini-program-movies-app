@@ -35,9 +35,13 @@ router.post('/message', controllers.message.post)
 router.get('/movies', controllers.movies.list)
 // 获取商品详情
 router.get('/movies/:id', controllers.movies.detail)
-// 添加评论
+// 添加影评
 router.put('/moviecomment', validationMiddleware, controllers.comment.add)
-// 获取评论列表
+// 获取影评列表
 router.get('/moviecomment', controllers.comment.list)
+// 收藏影评
+router.put('/favorite', validationMiddleware, controllers.favorite.add)
+// 获取收藏列表
+router.get('/favorite', validationMiddleware, controllers.favorite.list)
 
 module.exports = router

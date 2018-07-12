@@ -25,10 +25,30 @@ page {
   font-weight: bold;
 } 
 
+.comment-top {
+  display: flex;
+  flex-direction: row; 
+  margin-top: 10rpx;
+}
+
+.comment-avatar {
+  flex-shrink: 0;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.comment-username {
+  font-size: 32rpx;
+  line-height: 45rpx;
+  opacity: 0.8;
+  margin-left: 10rpx;
+}
+
 .background {
   position: absolute;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   top: 100rpx;
   background-color: #FFFFFF;
   border: 1px solid #ccc;
@@ -38,9 +58,14 @@ page {
   z-index: 1;
   left: 0;
   right: 0; 
-  padding-top: 300rpx;
+  padding-top: 450rpx;
   padding-bottom: 150rpx;
   width: 90%;
+}
+
+.quote {
+  font-size: 100rpx;
+  line-height: 140rpx
 }
 
 .comment {

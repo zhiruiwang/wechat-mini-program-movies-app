@@ -2,8 +2,14 @@
 <view class='movie-card'>
   <image class='movie-pic' src="{{movie.image}}"></image>
   <text class='movie-name'>{{movie.title}}</text>
+  <view class='comment-top'>
+    <image class='comment-avatar' src='{{avatar}}'></image> 
+    <view class='comment-username'>{{username}}的影评</view>
+  </view>
 </view>
+
 <scroll-view scroll-y  class='background'>
+  <text class='quote'>"</text>
   <text class='comment'>{{commentValue}}</text>
 </scroll-view>
 

@@ -13,12 +13,17 @@
 <view class="user-card" wx:else>
   <view class="user-info">
     <image class="user-head" src="{{userInfo.avatarUrl}}"></image>
-    <text class='title'>收藏的影评 ∨</text>
+    <text class='title'>收藏的{{commentList.length}}条影评 ∨</text>
   </view>
-  <navigator  class='movie-card'>
-    <image class='movie-image' src='https://movies-1256757691.cos.na-ashburn.myqcloud.com/p2517753454.jpg'></image>
+  <navigator  class='movie-card' wx:for='{{commentList}}' wx:key='id' wx:for-item='item' url='/pages/commentdetail/commentdetail?id={{item.movie_id}}&image={{item.image}}&title={{item.title}}&comment={{item.content}}&commentid={{item.id}}&username={{item.username}}&avatar={{item.avatar}}'>
+    <image class='movie-image' src='{{item.image}}'></image>
     <view class='text-card'>
-      <text class='movie-name'>复仇者联盟3：无限战争</text>
+      <text class='movie-name'>{{item.title}}</text>
+      <view class='comment-content'>{{item.content}}</view>
+      <view class='comment-top'>
+        <image class='comment-avatar' src='{{item.avatar}}'></image> 
+        <view class='comment-username'>{{item.username}}</view>
+      </view>
     </view>
   </navigator>
 

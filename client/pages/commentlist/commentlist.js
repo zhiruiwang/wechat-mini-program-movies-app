@@ -10,7 +10,7 @@ Page({
    */
   data: {
     movie: {},
-    commentList: [] // 评论列表
+    commentList: [] // 影评列表
   },
 
   getCommentList(id) {

@@ -52,8 +52,34 @@ page {
   font-weight: bold;
   font-size: 32rpx;
   line-height: 45rpx;
-  margin-bottom: 50rpx;
+  margin-bottom: 10rpx;
 }
+
+.comment-content {
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
+.comment-top {
+  display: flex;
+  flex-direction: row; 
+  margin-top: 10rpx;
+}
+
+.comment-avatar {
+  flex-shrink: 0;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.comment-username {
+  font-size: 28rpx;
+  line-height: 40rpx;
+  opacity: 0.8;
+  margin-left: 10rpx;
+}
+
 /* 下方按钮 */
 .back-home {
   display: flex;

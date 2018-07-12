@@ -32,11 +32,17 @@ var config = {
         // 拉取用户信息
         user: `${host}/weapp/user`,
 
-        // 添加评论
+        // 添加影评
         addComment: `${host}/weapp/moviecomment`,
 
-        // 获取评论列表
+        // 获取影评列表
         commentList: `${host}/weapp/moviecomment`,
+
+        // 添加收藏
+        addfavorite: `${host}/weapp/favorite`,
+
+        // 获取收藏列表
+        favoriteList: `${host}/weapp/favorite`,
     }
 };
 

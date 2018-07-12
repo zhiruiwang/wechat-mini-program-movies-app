@@ -10,9 +10,25 @@ Page({
    */
   data: {
     userInfo: null,
-    locationAuthType: app.data.locationAuthType
+    locationAuthType: app.data.locationAuthType,
+    commentList: [] // 影评列表
   },
 
+  getfavoriteList() {
+    qcloud.request({
+      url: config.service.favoriteList,
+      login: true,
+      success: result => {
+        let data = result.data
+        
+        if (!data.code) {
+          this.setData({
+            commentList: data.data
+          })
+        }
+      },
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -58,6 +74,8 @@ Page({
         })
       }
     })
+
+    this.getfavoriteList()
   },
 
   /**

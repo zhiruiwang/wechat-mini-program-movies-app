@@ -9,9 +9,59 @@ Page({
    */
   data: {
     movie: {},
-    commentValue: ''
+    commentValue: '',
+    commentid: null,
+    username: "",
+    avatar: ""
   },
+  star(event) {
+    let id = this.data.commentid
+    if (!id) return
 
+    wx.showLoading({
+      title: '正在收藏影评'
+    })
+
+    qcloud.request({
+      url: config.service.addfavorite,
+      login: true,
+      method: 'PUT',
+      data: {
+        id: id
+      },
+      success: result => {
+        wx.hideLoading()
+
+        let data = result.data
+
+        if (!data.code) {
+          wx.showToast({
+            title: '收藏影评成功'
+          })
+
+          setTimeout(() => {
+            let movie = this.data.movie
+            wx.navigateTo({
+              url: "/pages/user/user"
+            })
+          }, 1500)
+        } else {
+          wx.showToast({
+            icon: 'none',
+            title: '收藏影评失败'
+          })
+        }
+      },
+      fail: () => {
+        wx.hideLoading()
+
+        wx.showToast({
+          icon: 'none',
+          title: '收藏影评失败'
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -21,10 +71,12 @@ Page({
       image: options.image.trim(),
       title: options.title
     }
-    let commentValue = options.comment
     this.setData({
       movie: movie,
-      commentValue: commentValue
+      commentValue: options.comment,
+      commentid: options.commentid,
+      username: options.username,
+      avatar: options.avatar
     })
   },
 

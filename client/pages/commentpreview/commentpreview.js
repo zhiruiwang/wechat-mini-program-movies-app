@@ -10,6 +10,8 @@ Page({
   data: {
     movie: {},
     commentValue: '',
+    avatar:"",
+    username:""
   },
 
   addComment(event) {
@@ -17,7 +19,7 @@ Page({
     if (!content) return
 
     wx.showLoading({
-      title: '正在发表评论'
+      title: '正在发表影评'
     })
 
     qcloud.request({
@@ -35,7 +37,7 @@ Page({
 
         if (!data.code) {
           wx.showToast({
-            title: '发表评论成功'
+            title: '发表影评成功'
           })
 
           setTimeout(() => {
@@ -47,7 +49,7 @@ Page({
         } else {
           wx.showToast({
             icon: 'none',
-            title: '发表评论失败'
+            title: '发表影评失败'
           })
         }
       },
@@ -56,7 +58,7 @@ Page({
 
         wx.showToast({
           icon: 'none',
-          title: '发表评论失败'
+          title: '发表影评失败'
         })
       }
     })
@@ -71,10 +73,11 @@ Page({
       image: options.image.trim(),
       title: options.title
     }
-    let commentValue = options.comment
     this.setData({
       movie: movie,
-      commentValue: commentValue
+      commentValue: options.comment,
+      avatar: options.avatar,
+      username: options.username
     })
   },
 

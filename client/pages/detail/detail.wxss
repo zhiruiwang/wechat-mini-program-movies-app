@@ -48,6 +48,7 @@ page {
   left: 80rpx; 
   right: 80rpx; 
   font-size: 30rpx;
+  line-height: 42rpx;
   opacity: 0.8;
 }
 

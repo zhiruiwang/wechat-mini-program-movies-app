@@ -20,13 +20,13 @@
   </view>
 
   <view class='button'>
-    <navigator class='record-button' url="/pages/commentlist/commentlist">
+    <navigator class='record-button' url="/pages/home/home">
       <image class='record-pic' src='/images/radio-microphone.png'></image>
       <text class='record-text'>录音</text>
     </navigator>
   </view>
 
-  <navigator class='finish' url='/pages/commentpreview/commentpreview?id={{movie.id}}&image={{movie.image}}&title={{movie.title}}&comment={{commentValue}}'>
+  <navigator class='finish' url='/pages/commentpreview/commentpreview?id={{movie.id}}&image={{movie.image}}&title={{movie.title}}&comment={{commentValue}}&avatar={{userInfo.avatarUrl}}&username={{userInfo.nickName}}'>
     <text class='finish-text'>完成</text>
   </navigator>
 </view>

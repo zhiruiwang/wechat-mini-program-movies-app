@@ -60,3 +60,27 @@ ALTER TABLE `moviecomment`
 --
 ALTER TABLE `moviecomment`
   ADD CONSTRAINT `moviecomment_link` FOREIGN KEY (`movie_id`) REFERENCES `movies` (`id`);
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `favorite`
+--
+
+CREATE TABLE `favorite` (
+  `id` int(11) NOT NULL,
+  `user` varchar(255) NOT NULL,
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --
+-- -- Indexes for table `favorite`
+-- --
+-- ALTER TABLE `favorite`
+--   ADD PRIMARY KEY (`user`),
+--   ADD KEY `moviecomment` (`id`);
+-- --
+-- -- 限制表 `favorite`
+-- --
+-- ALTER TABLE `favorite`
+--   ADD CONSTRAINT `favorite_link` FOREIGN KEY (`id`) REFERENCES `moviecomment` (`id`);
