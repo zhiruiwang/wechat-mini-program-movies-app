@@ -7,8 +7,8 @@
     "pages/commentlist/commentlist",
     "pages/commentedit/commentedit",
     "pages/commentpreview/commentpreview",
-    "pages/commentdetail/commentdetail"
-
+    "pages/commentdetail/commentdetail",
+    "pages/recordings/recordings"
   ],
   "window": {
     "backgroundColor": "#DCDCDC",

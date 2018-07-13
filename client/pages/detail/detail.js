@@ -62,7 +62,7 @@ Page({
             })
           } else if (res.tapIndex == 1) {
             wx.navigateTo({
-              url: '/pages/home/home',
+              url: '/pages/recordings/recordings?id=' + movie.id + "&image=" + movie.image + "&title=" + movie.title
             })
           }
         }

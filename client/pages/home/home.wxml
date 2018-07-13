@@ -3,8 +3,14 @@
   <image class='recommend-pic' src="{{movieList.image}}"></image>
   <text class='recommend-name'>{{movieList.title}}</text>
 </navigator>
-<navigator class='comment'>
-  <text class='comment-text'>给你推荐了一部电影</text>
+<view wx:if="{{!comment}}">
+  <view class='comment'>
+    <text class='comment-text'>当前电影还没有影评</text>
+  </view>
+</view>
+<navigator class='comment' wx:else url='/pages/commentdetail/commentdetail?id={{movieList.id}}&image={{movieList.image}}&title={{movieList.title}}&comment={{comment.content}}&commentid={{comment.id}}&username={{comment.username}}&avatar={{comment.avatar}}'>
+  <image class='comment-avatar' src='{{comment.avatar}}'></image>
+  <text class='comment-text'>{{comment.username}}给你推荐了一部电影</text>
 </navigator>
 <view class='button'>
   <navigator class='hot-button' url='/pages/hot/hot'>

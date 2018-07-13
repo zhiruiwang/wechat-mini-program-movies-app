@@ -27,6 +27,13 @@ page {
   justify-content: center;
 }
 
+.comment-avatar {
+  flex-shrink: 0;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
 .comment-text {
   margin: 20rpx 20rpx;
   font-size: 28rpx;

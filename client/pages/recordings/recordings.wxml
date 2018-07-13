@@ -1,0 +1,31 @@
+<!--pages/recordings/recordings.wxml-->
+<view wx:if="{{!userInfo}}">
+  <view class="unlogin-card">
+    <view class="unlogin-head"></view>
+    <view class="unlogin-info">
+      <view class="unlogin-text">未登录</view>
+      <view class="unlogin-tips">点击微信登录后查看收藏影评</view>
+    </view>
+  </view>
+  <button wx:if="{{locationAuthType==0}}" class="unlogin-btn" open-type='getUserInfo' bindgetuserinfo='onTapLogin'>微信登录</button>
+  <button wx:if="{{locationAuthType==1}}" class="unlogin-btn" open-type='openSetting' bindopensetting="onTapLogin">授权登录</button>
+</view>
+<view wx:else>
+  <view class='movie-card'>
+    <image class='movie-pic' src="{{movie.image}}"></image>
+    <text class='movie-name'>{{movie.title}}</text>
+  </view>
+  <view class='background'></view>
+
+  <view class='button'>
+    <view class='record-button'>
+      <button bindtap="start" class='record-text'>开始录音</button>
+      <button bindtap="stop" class='record-text'>停止录音</button>
+      <button bindtap="play" class='record-text'>播放录音</button>
+    </view>
+  </view>
+
+  <button bindtap="uploadRecording" class='finish'>
+    <text class='finish-text'>上传</text>
+  </button>
+</view>

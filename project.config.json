@@ -10,6 +10,7 @@
 	},
 	"appid": "wx88d23310b5da5c84",
 	"projectname": "movies",
+	"libVersion": "2.1.3",
 	"condition": {
 		"search": {
 			"current": -1,

@@ -28,7 +28,8 @@ Page({
       method: 'PUT',
       data: {
         content: content,
-        movie_id: this.data.movie.id
+        movie_id: this.data.movie.id,
+        recordings:null
       },
       success: result => {
         wx.hideLoading()

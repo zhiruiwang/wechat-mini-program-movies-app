@@ -32,7 +32,7 @@ const CONF = {
          */
         region: 'na-ashburn',
         // Bucket 名称
-        fileBucket: 'qcloudtest',
+        fileBucket: 'recordings-1256757691',
         // 文件夹
         uploadFolder: ''
     },
