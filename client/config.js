@@ -20,8 +20,8 @@ var config = {
         // 测试的信道服务地址
         tunnelUrl: `${host}/weapp/tunnel`,
 
-        // 上传图片接口
-        uploadUrl: `${host}/weapp/upload`,
+        // 上传录音接口
+        uploadUrl: `${host}/weapp/upload/Web/UpVoice`,
 
         // 获取电影列表
         movieList: `${host}/weapp/movies`,

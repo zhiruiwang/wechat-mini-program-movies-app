@@ -119,12 +119,9 @@ Page({
       title: '正在发表录音'
     })
     wx.uploadFile({
-      url: config.service.uploadUrl + "/Web/UpVoice",
+      url: config.service.uploadUrl,
       filePath: recording,
       name: 'file',
-      header: {
-        'content-type': 'multipart/form-data'
-      },
       formData:
       {
         userId: 100005718031 //附加信息为用户ID
