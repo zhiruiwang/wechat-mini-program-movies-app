@@ -76,6 +76,35 @@ page {
   opacity: 0.8;
 }
 
+.recording {
+  position: relative;
+  background-color: lightgrey;
+  height: 50rpx;
+  width: 250rpx;
+  border-radius: 5rpx;
+  border: 1px solid gray;
+  left: 80rpx;
+  top: -100rpx;
+}
+
+.play{
+  position: absolute;
+  top: 5rpx;
+  flex-shrink: 0;
+  width: 40rpx;
+  height: 40rpx;
+  align-items: left;
+  margin-left: 30rpx;
+}
+
+.duration {
+  position: absolute;
+  top: 5rpx;
+  left: 80rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
 .button {
   position: absolute;
   display: flex;

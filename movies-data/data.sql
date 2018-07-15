@@ -40,6 +40,7 @@ CREATE TABLE `moviecomment` (
   `avatar` varchar(255) NOT NULL,
   `content` varchar(511) CHARACTER SET utf8 DEFAULT NULL,
   `recordings` varchar(1023) DEFAULT NULL,
+  `duration` decimal(11,2) DEFAULT NULL,
   `movie_id` int(11) NOT NULL,
   `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

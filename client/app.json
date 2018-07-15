@@ -8,7 +8,8 @@
     "pages/commentedit/commentedit",
     "pages/commentpreview/commentpreview",
     "pages/commentdetail/commentdetail",
-    "pages/recordings/recordings"
+    "pages/recordings/recordings",
+    "pages/play/play"
   ],
   "window": {
     "backgroundColor": "#DCDCDC",

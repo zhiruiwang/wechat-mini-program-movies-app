@@ -23,7 +23,7 @@ module.exports = {
     let user = ctx.state.$wxInfo.userinfo.openId
 
     if (!(user==null)) {
-      ctx.state.data = await DB.query('SELECT moviecomment.id,moviecomment.username,moviecomment.avatar,moviecomment.content,moviecomment.recordings,moviecomment.movie_id, movies.title, movies.image FROM favorite INNER JOIN moviecomment ON moviecomment.id = favorite.id INNER JOIN movies ON movies.id = moviecomment.movie_id WHERE favorite.user = ?', [user])
+      ctx.state.data = await DB.query('SELECT moviecomment.id,moviecomment.username,moviecomment.avatar,moviecomment.content,moviecomment.recordings,moviecomment.duration,moviecomment.movie_id, movies.title, movies.image FROM favorite INNER JOIN moviecomment ON moviecomment.id = favorite.id INNER JOIN movies ON movies.id = moviecomment.movie_id WHERE favorite.user = ?', [user])
     } else {
       ctx.state.data = []
     }

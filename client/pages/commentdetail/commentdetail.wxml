@@ -10,7 +10,11 @@
 
 <scroll-view scroll-y  class='background'>
   <text class='quote'>"</text>
-  <text class='comment'>{{commentValue}}</text>
+  <text wx:if="{{commentValue!='null'}}" class='comment'>{{commentValue}}</text>
+  <navigator wx:else class='recording' url="/pages/play/play?avatar={{avatar}}&recordings={{recordings}}">
+    <image class='play' src='/images/play-button.png'></image>
+    <text class='duration'>{{duration}}s</text>
+  </navigator>
 </scroll-view>
 
 <view class='button'>

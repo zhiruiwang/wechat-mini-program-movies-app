@@ -60,6 +60,33 @@ page {
   line-height: 42rpx;
 }
 
+.recording {
+  position: relative;
+  background-color: lightgrey;
+  height: 50rpx;
+  width: 250rpx;
+  border-radius: 5rpx;
+  border: 1px solid gray
+}
+
+.play{
+  position: absolute;
+  top: 5rpx;
+  flex-shrink: 0;
+  width: 40rpx;
+  height: 40rpx;
+  align-items: left;
+  margin-left: 30rpx;
+}
+
+.duration {
+  position: absolute;
+  top: 5rpx;
+  left: 80rpx;
+  font-size: 30rpx;
+  line-height: 42rpx;
+}
+
 .comment-top {
   display: flex;
   flex-direction: row; 

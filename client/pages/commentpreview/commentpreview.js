@@ -29,7 +29,8 @@ Page({
       data: {
         content: content,
         movie_id: this.data.movie.id,
-        recordings:null
+        recordings:null,
+        duration: null
       },
       success: result => {
         wx.hideLoading()

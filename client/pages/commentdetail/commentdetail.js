@@ -12,7 +12,9 @@ Page({
     commentValue: '',
     commentid: null,
     username: "",
-    avatar: ""
+    avatar: "",
+    recordings:"",
+    duration: "",
   },
   star(event) {
     let id = this.data.commentid
@@ -76,7 +78,9 @@ Page({
       commentValue: options.comment,
       commentid: options.commentid,
       username: options.username,
-      avatar: options.avatar
+      avatar: options.avatar,
+      recordings: options.recordings,
+      duration: options.duration
     })
   },
 

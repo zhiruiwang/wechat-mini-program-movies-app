@@ -62,7 +62,7 @@ Page({
   },
 
   addComment(recordingUrl) {
-    if (!recordingUrl) return
+    // if (!recordingUrl) return
 
     wx.showLoading({
       title: '正在发表影评'
@@ -75,7 +75,8 @@ Page({
       data: {
         content: null,
         movie_id: this.data.movie.id,
-        recordings: recordingUrl
+        recordings: recordingUrl,
+        duration: this.tempFilePath.slice(this.tempFilePath.search("durationTime=") + 13, this.tempFilePath.search(".mp3"))/1000
       },
       success: result => {
         wx.hideLoading()
@@ -111,7 +112,7 @@ Page({
     })
   },
 
-  uploadRecording(cb) {
+  uploadRecording() {
     let recording = this.tempFilePath
     console.log(recording)
     if (!recording) return
@@ -134,6 +135,7 @@ Page({
           wx.showToast({
             title: '发表录音成功'
           })
+          this.addComment(data.data.Url)
         }
       },
       fail: () => {
