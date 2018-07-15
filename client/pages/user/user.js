@@ -11,7 +11,8 @@ Page({
   data: {
     userInfo: null,
     locationAuthType: app.data.locationAuthType,
-    commentList: [] // 影评列表
+    commentList: [], // 影评列表
+    usercomment:[]
   },
 
   getfavoriteList() {
@@ -29,6 +30,23 @@ Page({
       },
     })
   },
+
+    getusercomment() {
+    qcloud.request({
+      url: config.service.usercomment,
+      login: true,
+      success: result => {
+        let data = result.data
+        console.log(data)
+        if (!data.code) {
+          this.setData({
+            usercomment: data.data
+          })
+        }
+      },
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -76,6 +94,7 @@ Page({
     })
 
     this.getfavoriteList()
+    this.getusercomment()
   },
 
   /**

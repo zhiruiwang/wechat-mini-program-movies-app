@@ -18,12 +18,20 @@
 </scroll-view>
 
 <view class='button'>
-  <button class='star-button' bindtap="star">
+  <button wx:if="{{!hasfavorite}}" class='star-button' bindtap="star">
     <image class='star-pic' src='/images/star.png'></image>
     <text class='star-text'>收藏影评</text>
   </button>
-  <button class='write-button' bindtap="chooseComment">
+  <view wx:else class='star-button' bindtap="star">
+    <image class='star-pic' src='/images/stared.png'></image>
+    <text class='star-text'>已收藏</text>
+  </view>
+  <button wx:if="{{!hascomment}}" class='write-button' bindtap="chooseComment">
     <image class='write-pic' src='/images/pencil-edit-button.png'></image>
     <text class='write-text'>写影评</text>
   </button>
+  <view wx:else class='write-button' bindtap="chooseComment">
+    <image class='write-pic' src='/images/edit.png'></image>
+    <text class='write-text'>已写影评</text>
+  </view>
 </view>

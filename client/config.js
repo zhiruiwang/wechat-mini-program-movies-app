@@ -38,6 +38,9 @@ var config = {
         // 获取影评列表
         commentList: `${host}/weapp/moviecomment`,
 
+        // 获取自己的影评列表
+        usercomment: `${host}/weapp/usercomment`,
+
         // 添加收藏
         addfavorite: `${host}/weapp/favorite`,
 

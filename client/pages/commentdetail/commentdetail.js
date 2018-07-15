@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    hasfavorite: false,
+    hascomment: false,
     movie: {},
     commentValue: '',
     commentid: null,
@@ -82,6 +84,8 @@ Page({
       recordings: options.recordings,
       duration: options.duration
     })
+    this.getfavoriteList()
+    this.getusercomment()
   },
 
   chooseComment: function () {
@@ -101,6 +105,46 @@ Page({
           }
         }
       }
+    })
+  },
+
+  getfavoriteList() {
+    qcloud.request({
+      url: config.service.favoriteList,
+      login: true,
+      success: result => {
+        let data = result.data
+
+        if (!data.code) {
+          this.favoriteids = []
+          data.data.forEach(element => {this.favoriteids.push(element.id)})
+          if (this.favoriteids.includes(parseInt(this.data.commentid))){
+            this.setData({
+              hasfavorite: true
+            })
+          }
+        }
+      },
+    })
+  },
+
+  getusercomment() {
+    qcloud.request({
+      url: config.service.usercomment,
+      login: true,
+      success: result => {
+        let data = result.data
+        console.log(data)
+        if (!data.code) {
+          this.usercomment = []
+          data.data.forEach(element => { this.usercomment.push(element.id) })
+          if (this.usercomment.includes(parseInt(this.data.commentid))) {
+            this.setData({
+              hascomment: true
+            })
+          }
+        }
+      },
     })
   },
 

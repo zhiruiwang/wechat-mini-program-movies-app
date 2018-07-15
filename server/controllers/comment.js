@@ -35,4 +35,17 @@ module.exports = {
       ctx.state.data = []
     }
   },
+
+/**
+ * 获取自己的影评列表
+ */
+  userlist: async ctx => {
+    let user = ctx.state.$wxInfo.userinfo.openId
+
+    if (!isNaN(user)) {
+      ctx.state.data = await DB.query('select * from moviecomment where moviecomment.user = ?', [user])
+    } else {
+      ctx.state.data = []
+    }
+  },
 }
