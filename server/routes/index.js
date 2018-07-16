@@ -33,6 +33,8 @@ router.get('/message', controllers.message.get)
 router.post('/message', controllers.message.post)
 // 获取电影列表
 router.get('/movies', controllers.movies.list)
+// 随机获取一个电影
+router.get('/randommovie', controllers.movies.randommovie)
 // 获取商品详情
 router.get('/movies/:id', controllers.movies.detail)
 // 添加影评
@@ -40,7 +42,7 @@ router.put('/moviecomment', validationMiddleware, controllers.comment.add)
 // 获取影评列表
 router.get('/moviecomment', controllers.comment.list)
 // 获取自己的影评列表
-router.get('/usercomment', controllers.comment.userlist)
+router.get('/usercomment', validationMiddleware, controllers.comment.userlist)
 // 收藏影评
 router.put('/favorite', validationMiddleware, controllers.favorite.add)
 // 获取收藏列表

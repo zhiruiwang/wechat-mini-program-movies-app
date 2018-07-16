@@ -29,6 +29,9 @@ var config = {
         // 获取电影详情
         movieDetail: `${host}/weapp/movies/`,
 
+        // 随机获取电影一个
+        randomMovie: `${host}/weapp/randommovie`,
+
         // 拉取用户信息
         user: `${host}/weapp/user`,
 

@@ -31,19 +31,21 @@ Page({
     })
   },
 
-    getusercomment() {
+  getusercomment() {
     qcloud.request({
       url: config.service.usercomment,
       login: true,
       success: result => {
         let data = result.data
-        console.log(data)
         if (!data.code) {
           this.setData({
             usercomment: data.data
           })
         }
       },
+      fail: () => {
+        console.log(config.service.usercomment)
+      }
     })
   },
 

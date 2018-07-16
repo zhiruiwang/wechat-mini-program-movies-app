@@ -16,21 +16,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getmovieList()
+    this.getrandommovie()
   },
 
-  getmovieList() {
+  getrandommovie() {
     wx.showLoading({
       title: '电影数据加载中',
     })
     qcloud.request({
-      url: config.service.movieList,
+      url: config.service.randomMovie,
       success: result => {
         wx.hideLoading()
-
+        
         if (!result.data.code) {
           this.setData({
-            movieList: result.data.data[Math.floor(Math.random()*result.data.data.length)]
+            movieList: result.data.data[0]
           })
           this.getComment(this.data.movieList.id)
         } else {
@@ -98,7 +98,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-    this.getmovieList()
+    this.getrandommovie()
   },
 
   /**

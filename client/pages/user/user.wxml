@@ -32,7 +32,7 @@
   </navigator>
   <view class="user-info">
     <image class="user-head" src="{{userInfo.avatarUrl}}"></image>
-    <text class='title'>评论的{{usercomment.length}}条影评 ∨</text>
+    <text class='title'>发布的{{usercomment.length}}条影评 ∨</text>
   </view>
   <navigator  class='movie-card' wx:for='{{usercomment}}' wx:key='id' wx:for-item='item' url='/pages/commentdetail/commentdetail?id={{item.movie_id}}&image={{item.image}}&title={{item.title}}&comment={{item.content}}&commentid={{item.id}}&username={{item.username}}&avatar={{item.avatar}}&recordings={{item.recordings}}&duration={{item.duration}}'>
     <image class='movie-image' src='{{item.image}}'></image>

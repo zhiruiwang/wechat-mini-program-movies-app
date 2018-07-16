@@ -10,6 +10,10 @@ module.exports = {
     ctx.state.data = await DB.query("SELECT * FROM movies;")
   },
 
+  randommovie: async ctx => {
+    ctx.state.data = await DB.query("SELECT * FROM movies ORDER BY RAND() LIMIT 1;")
+  },
+
   detail: async ctx => {
     let movieId = + ctx.params.id
     let movies

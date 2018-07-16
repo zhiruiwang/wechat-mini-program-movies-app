@@ -41,9 +41,9 @@ module.exports = {
  */
   userlist: async ctx => {
     let user = ctx.state.$wxInfo.userinfo.openId
-
-    if (!isNaN(user)) {
-      ctx.state.data = await DB.query('select * from moviecomment where moviecomment.user = ?', [user])
+    
+    if (!(user == null)) {
+      ctx.state.data = await DB.query('SELECT moviecomment.id,moviecomment.username,moviecomment.avatar,moviecomment.content,moviecomment.recordings,moviecomment.duration,moviecomment.movie_id, movies.title, movies.image FROM moviecomment INNER JOIN movies ON moviecomment.movie_id = movies.id WHERE moviecomment.user = ?', [user])
     } else {
       ctx.state.data = []
     }

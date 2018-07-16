@@ -134,7 +134,6 @@ Page({
       login: true,
       success: result => {
         let data = result.data
-        console.log(data)
         if (!data.code) {
           this.usercomment = []
           data.data.forEach(element => { this.usercomment.push(element.id) })
