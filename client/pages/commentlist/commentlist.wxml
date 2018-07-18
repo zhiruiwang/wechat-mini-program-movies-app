@@ -1,15 +1,15 @@
 <!--pages/commentlist/commentlist.wxml-->
 <view class='comment-list'>
   <view class='comment-title'>{{commentList.length}}条影评</view>
-  <navigator class="comment-card" wx:for='{{commentList}}' wx:key='id' wx:for-item='item' url='/pages/commentdetail/commentdetail?id={{movie.id}}&image={{movie.image}}&title={{movie.title}}&comment={{item.content}}&commentid={{item.id}}&username={{item.username}}&avatar={{item.avatar}}&recordings={{item.recordings}}&duration={{item.duration}}'>
+  <navigator class="comment-card" wx:for='{{commentList}}' wx:key='id' wx:for-item='item' url='/pages/commentdetail/commentdetail?id={{movie.id}}&image={{movie.image}}&title={{movie.title}}&comment={{item.content}}&commentid={{item.id}}&username={{item.username}}&avatar={{item.avatar}}&recordings={{item.recordings}}&duration={{item.duration}}' hover-stop-propagation>
     <image class='comment-avatar' src='{{item.avatar}}'></image> 
-    <view class='comment-cnt'>
+    <view class='comment-cnt' hover-stop-propagation>
       <view class='comment-top'>
         <view class='comment-username'>{{item.username}}</view>
         <view class="comment-time">{{item.createTime}}</view>
       </view>
       <view class='comment-content' wx:if="{{!!item.content}}">{{item.content}}</view>
-      <navigator wx:else class='recording' url="/pages/play/play?avatar={{item.avatar}}&recordings={{item.recordings}}">
+      <navigator wx:else class='recording' url="/pages/play/play?avatar={{item.avatar}}&recordings={{item.recordings}}" hover-stop-propagation>
         <image class='play' src='/images/play-button.png'></image>
         <text class='duration'>{{item.duration}}s</text>
       </navigator>

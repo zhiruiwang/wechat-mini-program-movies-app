@@ -1,6 +1,8 @@
 <!--pages/commentdetail/commentdetail.wxml-->
 <view class='movie-card'>
-  <image class='movie-pic' src="{{movie.image}}"></image>
+  <navigator url="/pages/detail/detail?id={{movie.id}}">
+    <image class='movie-pic' src="{{movie.image}}"></image>
+  </navigator>
   <text class='movie-name'>{{movie.title}}</text>
   <view class='comment-top'>
     <image class='comment-avatar' src='{{avatar}}'></image> 

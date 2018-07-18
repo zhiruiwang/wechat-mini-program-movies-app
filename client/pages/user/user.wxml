@@ -34,12 +34,12 @@
     <image class="user-head" src="{{userInfo.avatarUrl}}"></image>
     <text class='title'>发布的{{usercomment.length}}条影评 ∨</text>
   </view>
-  <navigator  class='movie-card' wx:for='{{usercomment}}' wx:key='id' wx:for-item='item' url='/pages/commentdetail/commentdetail?id={{item.movie_id}}&image={{item.image}}&title={{item.title}}&comment={{item.content}}&commentid={{item.id}}&username={{item.username}}&avatar={{item.avatar}}&recordings={{item.recordings}}&duration={{item.duration}}'>
-    <image class='movie-image' src='{{item.image}}'></image>
-    <view class='text-card'>
+  <navigator class='movie-card' wx:for='{{usercomment}}' wx:key='id' wx:for-item='item' url='/pages/commentdetail/commentdetail?id={{item.movie_id}}&image={{item.image}}&title={{item.title}}&comment={{item.content}}&commentid={{item.id}}&username={{item.username}}&avatar={{item.avatar}}&recordings={{item.recordings}}&duration={{item.duration}}'>
+    <image class='movie-image' src='{{item.image}}' hover-stop-propagation></image>
+    <view class='text-card' hover-stop-propagation>
       <text class='movie-name'>{{item.title}}</text>
       <view class='comment-content' wx:if="{{!!item.content}}">{{item.content}}</view>
-      <navigator wx:else class='recording' url="/pages/play/play?avatar={{item.avatar}}&recordings={{item.recordings}}">
+      <navigator wx:else class='recording' url="/pages/play/play?avatar={{item.avatar}}&recordings={{item.recordings}}" hover-stop-propagation>
         <image class='play' src='/images/play-button.png'></image>
         <text class='duration'>{{item.duration}}s</text>
       </navigator>

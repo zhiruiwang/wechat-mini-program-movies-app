@@ -51,6 +51,7 @@ Page({
 
     innerAudioContext.autoplay = true
     innerAudioContext.src = this.tempFilePath,
+    console.log(innerAudioContext.duration)
       innerAudioContext.onPlay(() => {
         console.log('开始播放')
       })
@@ -58,7 +59,13 @@ Page({
       console.log(res.errMsg)
       console.log(res.errCode)
     })
-
+  },
+  duration: function (recordingUrl) {
+    innerAudioContext.autoplay = false
+    innerAudioContext.src = recordingUrl
+    innerAudioContext.src
+    console.log(innerAudioContext.duration)
+    return innerAudioContext.duration
   },
 
   addComment(recordingUrl) {
@@ -76,7 +83,8 @@ Page({
         content: null,
         movie_id: this.data.movie.id,
         recordings: recordingUrl,
-        duration: this.tempFilePath.slice(this.tempFilePath.search("durationTime=") + 13, this.tempFilePath.search(".mp3"))/1000
+        duration: this.duration(recordingUrl)
+        // duration: this.tempFilePath.slice(this.tempFilePath.search("durationTime=") + 13, this.tempFilePath.search(".mp3"))/1000
       },
       success: result => {
         wx.hideLoading()
@@ -135,7 +143,7 @@ Page({
           wx.showToast({
             title: '发表录音成功'
           })
-          this.addComment(data.data.Url)
+          this.addComment(data.data.imgUrl)
         }
       },
       fail: () => {

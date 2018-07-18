@@ -32,7 +32,7 @@ const CONF = {
          */
         region: 'na-ashburn',
         // Bucket 名称
-        fileBucket: 'recordings-1256757691',
+        fileBucket: 'recordings',
         // 文件夹
         uploadFolder: ''
     },
